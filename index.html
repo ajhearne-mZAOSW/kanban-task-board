@@ -21,11 +21,30 @@
     <p class="lead">A simple Kanban board for task management</p>
   </header>
   <div class="container">
+    <!-- Add new task button -->
     <div class="text-center mb-5">
-      <button class="btn btn-success" data-bs-toggle="modal" data-bs-target="#formModal">Add Task</button>
+      <button id="add-task" class="btn btn-success" data-bs-target="#formModal">Add Task</button>
     </div>
-    <!-- Todo: Create a modal with a form to add tasks -->
+    <!-- Add new task form -->
+    <div id="new-task-form" title="Add Task" style="display: none">
+      <div class="row g-3">
+        <div class="col-6">
+          <label for="task-title">Task Title</label>
+          <input type="text" name="task-title" class="form-control" id="task-title">
+        </div>
+        <div class="col-6">
+          <label for="due-date">Due Date</label>
+          <input type="text" name="due-date" class="form-control" id="due-date">
+        </div>
+        <div class="col-12 lg-12">
+          <label for="task-description">Task Description</label>
+          <textarea type="text" name="task-description" class="form-control" id="task-description"></textarea>
+        </div>
+      </div>
+    </div>
+    <!-- Kanban lanes -->
     <div class="row swim-lanes text-center justify-content-between">
+      <!-- To-do lane -->
       <div class="col-12 col-lg-4 d-flex">
         <div id="to-do" class="card border-light mb-3 lane flex-grow-1">
           <div class="card-header bg-white">
@@ -36,6 +55,7 @@
           </div>
         </div>
       </div>
+      <!-- In Progress lane -->
       <div class="col-12 col-lg-4 d-flex">
         <div id="in-progress" class="card border-light mb-3 lane flex-grow-1">
           <div class="card-header bg-white">
@@ -45,16 +65,17 @@
             <div id="in-progress-cards"></div>
           </div>
         </div>
-        </div>
-        <div class="col-12 col-lg-4 d-flex">
-          <div id="done" class="card border-light mb-3 lane flex-grow-1">
+      </div>
+      <!-- Done lane -->
+      <div class="col-12 col-lg-4 d-flex">
+        <div id="done" class="card border-light mb-3 lane flex-grow-1">
             <div class="card-header bg-white">
               <h2 class="card-title mb-1">Done</h2>
             </div>
             <div class="card-body bg-light">
               <div id="done-cards"></div>
           </div>
-          </div>
+        </div>
       </div>
     </div>
   </div>
